@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --dark-desaturated-cyan-graph-des-txt: hsl(167, 40%, 24%);
+  --dark-blue-photo-txt: hsl(198, 62%, 26%);
+  --dark-moderate-cyan-foot: hsl(168, 34%, 41%);
+
+  --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+  --very-dark-grayish-blue: hsl(213, 9%, 39%);
+  --dark-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html { font-size: 100%; }
+body {
+  /*font-family: 'Barlow', sans-serif;*/
+  font-family: 'Fraunces', serif;
+}
+ul { list-style: none; }
+a {
+  cursor: none;
+  text-decoration: none;
+}
+#header,
+#main-container { 
+  max-width: 1440px !important;
+  margin: auto;
+}
+.navbar,
+section:not(.cards-sect, .gallery-sect) { padding: 3.65em 1.62em; }
+
+#header {
+  width: 100%;
+  max-width: 1440px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .86em 1.62em;
+  transition: .4s;
+}
+.navbar.show-bg { background: hsl(0, 0%, 0%, .1); }
+.logo-header { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-header img { width: 8rem; }
+.nav-links {
+  width: 85vw;
+  max-width: 400px;
+  height: max-content;
+  position: fixed;
+  top: 8.75vh;
+  right: 1.62rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7em;
+  padding: 2.5em;
+  padding-top: 5em;
+  background: var(--white);
+  clip-path: polygon(90% 11%, 100% 0, 100% 100%, 0 100%, 0 11%);
+  transition: .2s;
+  opacity: 0;
+  pointer-events: none;
+}
+.nav-links.show {
+  top: 11vh;
+  opacity: 1;
+  pointer-events: all;
+}
+.nav-link:not(.contact),
+.foot-link {
+  font-size: 1.22rem;
+  color: var(--dark-grayish-blue);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  transition: .2s;
+  display: inline-block;
+}
+.nav-link:not(.contact):hover { transform: scale(1.1); }
+.contact {
+  color: var(--very-dark-desaturated-blue);
+  font-size: 1rem;
+  padding: .95em 1.5em;
+  display: inline-block;
+  border-radius: 2rem;
+  background: var(--yellow);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: .2s;
+}
+.contact:hover {
+  color: var(--yellow);
+  background: var(--very-dark-desaturated-blue);
+}
+
+.header-sect {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: url(img/mobile/image-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.header-title {
+  font-size: 2.24rem;
+  color: var(--white);
+  margin: auto;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 900;
+  text-align: center;
+}
+@media (min-width: 62.5em) {
+  html { font-size: 172rem; }
+}
+@media (min-width: 46.75em) {
+  html { font-size: 120%; }
+  a { cursor: pointer; }
+  
+  #header { width: 100%;}
+  .nav-links {
+    width: 40%;
+    max-width: none;
+    padding: 0;
+    position: initial;
+    justify-content: space-between;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: all;
+    background: none;
+    clip-path: none;
+    right: 10rem;
+  }
+  .nav-link:not(.contact) { 
+    color: var(--white); 
+    font-size: .78rem;
+  }
+  .contact {
+    background: var(--white);
+    font-size: .6rem;
+  }
+  .contact:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, .4);
+  }
+  .burger-btn {
+    display: none;
+  }
+  
+  .header-sect { 
+    height: 100vh;
+    background: url(img/desktop/image-header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+}
+
+.card {
+  padding: 3.92em 1.5em;
+  text-align: center;
+}
+.card h2 {
+  font-size: 1.92rem;
+  color: var(--very-dark-desaturated-blue);
+  font-weight: 900;
+}
+.design h2,
+.photo h2 { font-size: 1.7rem; }
+.card p,
+.testi-txt {
+  font-size: 1.115rem;
+  font-family: 'Barlow', sans-serif;
+  color: var(--dark-grayish-blue);
+  line-height: 1.6em;
+  padding: 1.7em 0;
+}
+.design p,
+.photo p { 
+  font-size: 1rem;
+  line-height: 1.4em;
+}
+.more-btn {
+  font-size: 1rem;
+  color: var(--very-dark-desaturated-blue);
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 900;
+  z-index: 1;
+  transition: .2s;
+}
+.more-btn::before {
+  content: "";
+  height: .5rem;
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 0;
+  background: hsl(51, 100%, 82%);
+  z-index: -1;
+  border-radius: 1rem;
+}
+.more-btn:active { transform: scale(0.9); }
+.audience .more-btn::before {
+  background: hsl(7, 99%, 90%);
+}
+.egg,
+.glass {
+ width: 100%;
+ min-height: 19rem;
+ background: url(img/mobile/image-transform.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+.glass {
+ background: url(img/mobile/image-stand-out.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+
+.design {
+  padding: 23em 1.5em 1.5em 1.5em;
+  padding-top: 23em;
+  background: url(img/mobile/image-graphic-design.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.design :is(h2, p) { color: var(--dark-desaturated-cyan-graph-des-txt); }
+.photo {
+  padding: 23em 1.5em 1.5em 1.5em;
+  background: url(img/mobile/image-photography.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.photo :is(h2, p) { color: var(--dark-blue-photo-txt); }
+@media (min-width: 46.75em) {
+  .header-sect { 
+    justify-content: flex-start; 
+    align-content: start;
+  }
+  
+  .cards-sect {
+    display: grid;
+    grid-template-areas: "brand egg"
+                         "glass audience"
+                         "design photo";
+  }
+  .card { 
+    padding: 4.92em;
+    text-align: start;
+    }
+  .brand {
+    grid-area: brand;
+  }
+  .egg {
+    grid-area: egg;
+    background: url(img/desktop/image-transform.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .glass {
+    grid-area: glass;
+    background: url(img/desktop/image-stand-out.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .audience {
+    grid-area: audience;
+  }
+  .design {
+    padding: 14.25em 4.92em 1em 4.92em;
+    text-align: center;
+    grid-area: design;
+    background: url(img/desktop/image-graphic-design.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .photo {
+    padding: 14.25em 4.92em 1em 4.92em;
+    text-align: center;
+    grid-area: photo;
+    background: url(img/desktop/image-photography.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .card h2 {
+  font-size: 1.42rem;
+}
+.design h2,
+.photo h2 { font-size: 1.125rem; }
+.card p,
+.testi-txt {
+  font-size: .75rem;
+}
+.design p,
+.photo p { 
+  font-size: .6rem;
+}
+.more-btn {
+  font-size: .6rem;
+}
+.more-btn::before {
+  height: .25rem;
+}
+}
+
+.testimonials-sect {
+  text-align: center;
+}
+.testimonial { margin-top: 3rem; }
+.testimonials-sect h3 {
+  color: var(--grayish-blue);
+  font-size: 1rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.profile-img {
+  width: 4.25rem;
+  border-radius: 50%;
+}
+.name {
+  font-size: 1.125rem;
+  color: var(--very-dark-desaturated-blue);
+  margin-bottom: .75em;
+  font-weight: 900;
+}
+.job {
+  font-size: .78rem;
+  font-family: 'Barlow', sans-serif;
+  color: var(--grayish-blue);
+  font-weight: 600;
+}
+
+.gallery-sect {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.img-gallery {
+  width: 100%;
+  min-height: 11.4rem;
+}
+.milk {
+  background: url(img/mobile/image-gallery-milkbottles.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.orange {
+  background: url(img/mobile/image-gallery-orange.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cup {
+  background: url(img/mobile/image-gallery-cone.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sugar {
+  background: url(img/mobile/image-gallery-sugar-cubes.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.foot-sect {
+  text-align: center;
+  background: #90d4c5;
+}
+.logo-foot img { width: 8.75rem; }
+.foot-sect ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+.foot-links { margin: 2em 0 5em 0; }
+.foot-link, .social-links a { color: var(--dark-moderate-cyan-foot); }
+.foot-sect a:hover { color: var(--white);  transition: .2s;}
+.social-links a  { font-size: 1.75rem; }
+
+@media (min-width: 46.75em) {
+  .testimonials-cont {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 2em;
+  }
+  .testimonials-sect h3 { font-size: .8rem; }
+  .profile-img { width: 2.5rem; }
+  .name { font-size: .6rem; }
+  .job { font-size: .5rem; }
+  
+  .gallery-sect { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .img-gallery { min-height: 16rem; }
+  .milk {
+    background: url(img/desktop/image-gallery-milkbottles.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .orange {
+    background: url(img/desktop/image-gallery-orange.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .cup {
+    background: url(img/desktop/image-gallery-cone.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .sugar {
+    background: url(img/desktop/image-gallery-sugarcubes.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
